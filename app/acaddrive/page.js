@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import { useTheme } from '../../context/Themecontext';
+import { useTheme } from '../context/Themecontext.js';
 export default function AcadDrive() {
 const { dark, toggleDark } = useTheme();
 

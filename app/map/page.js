@@ -1,8 +1,7 @@
 'use client';
-import { useState, useEffect } from 'react';
-
-import { useTheme } from '../../context/Themecontext';
-
+import { useState,useEffect } from 'react';
+import { useTheme } from '../context/Themecontext.js';
+export const dynamic = 'force-dynamic';
 const locations = [
   { name: 'Medical Centre', lat: 17.5420, lng: 78.5764, desc: 'Campus medical centre' },
   { name: 'SAC', lat: 17.5409, lng: 78.5753, desc: 'Student Activity Centre' },

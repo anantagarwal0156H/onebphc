@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import { useTheme } from '../../context/Themecontext.js';
 
 export default function Links() {
 const { dark, toggleDark } = useTheme();
