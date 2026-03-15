@@ -1,7 +1,7 @@
 'use client';
 import { createContext, useContext, useEffect, useState } from 'react';
 
-const ThemeContext = createContext();
+const Themecontext = createContext();
 
 export function ThemeProvider({ children }) {
   const [dark, setDark] = useState(false);
@@ -19,12 +19,12 @@ export function ThemeProvider({ children }) {
   };
 
   return (
-    <ThemeContext.Provider value={{ dark, toggleDark }}>
+    <Themecontext.Provider value={{ dark, toggleDark }}>
       {children}
-    </ThemeContext.Provider>
+    </Themecontext.Provider>
   );
 }
 
 export function useTheme() {
-  return useContext(ThemeContext);
+  return useContext(Themecontext);
 }
