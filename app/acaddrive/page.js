@@ -1,8 +1,8 @@
 'use client';
 import { useState } from 'react';
-
+import { useTheme } from '../../context/Themecontext';
 export default function AcadDrive() {
-  const [dark, setDark] = useState(false);
+const { dark, toggleDark } = useTheme();
 
   const bg = dark ? 'bg-gray-950 text-white' : 'bg-gray-50 text-gray-900';
   const descColor = dark ? 'text-gray-400' : 'text-gray-500';
@@ -52,7 +52,7 @@ export default function AcadDrive() {
             <h1 className="text-3xl font-bold tracking-tight">AcadDrive</h1>
             <p className={`text-sm mt-1 ${descColor}`}>Academic resources by year.</p>
           </div>
-          <button onClick={() => setDark(!dark)} className={`text-sm px-4 py-2 rounded-full border transition ${borderColor} ${descColor}`}>{dark ? '☀️ Light' : '🌙 Dark'}</button>
+          <button onClick={toggleDark} className={`text-sm px-4 py-2 rounded-full border transition ${borderColor} ${descColor}`}>{dark ? '☀️ Light' : '🌙 Dark'}</button>
         </div>
 
         <div className="flex flex-col gap-4">

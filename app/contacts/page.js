@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-
+import { useTheme } from '../../context/Themecontext';
 const contacts = [
   {
     category: 'Medical',
@@ -41,7 +41,7 @@ const contacts = [
 ];
 
 export default function Contacts() {
-  const [dark, setDark] = useState(false);
+const { dark, toggleDark } = useTheme();
   const [toast, setToast] = useState(null);
 
   const bg = dark ? 'bg-gray-950 text-white' : 'bg-gray-50 text-gray-900';
@@ -71,7 +71,7 @@ export default function Contacts() {
             <h1 className="text-3xl font-bold tracking-tight">Important Contacts</h1>
             <p className={`text-sm mt-1 ${descColor}`}>Tap any contact to copy the number.</p>
           </div>
-          <button onClick={() => setDark(!dark)} className={`text-sm px-4 py-2 rounded-full border transition ${borderColor} ${descColor}`}>{dark ? '☀️ Light' : '🌙 Dark'}</button>
+          <button onClick={toggleDark} className={`text-sm px-4 py-2 rounded-full border transition ${borderColor} ${descColor}`}>{dark ? '☀️ Light' : '🌙 Dark'}</button>
         </div>
 
         <div className="flex flex-col gap-4">

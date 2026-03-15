@@ -2,8 +2,7 @@
 import { useState } from 'react';
 
 export default function Links() {
-  const [dark, setDark] = useState(false);
-
+const { dark, toggleDark } = useTheme();
   const websites = [
     { name: 'LMS (Moodle)', desc: 'Course material, assignments, grades', url: 'https://lms.erp.bits-pilani.ac.in/moodle/' },
     { name: 'ERP', desc: 'Academic portal — timetable, registration', url: 'https://erp.bits-pilani.ac.in/' },

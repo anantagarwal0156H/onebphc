@@ -1,9 +1,9 @@
 'use client';
 import { useState } from 'react';
+import { useTheme } from '../context/Themecontext';
 
 export default function Home() {
-  const [dark, setDark] = useState(false);
-
+const { dark, toggleDark } = useTheme();
   const pages = [
     { href: '/freshers', title: 'For Freshers', desc: 'Everything before you arrive', color: 'bg-rose-100 text-rose-900' },
 { href: '/map', title: 'Campus Map', desc: 'Find any location on campus', color: 'bg-blue-100 text-blue-900' },
@@ -25,7 +25,7 @@ export default function Home() {
             <h1 className="text-3xl font-bold tracking-tight">OneBPHC</h1>
             <p className={`text-sm mt-1 ${descColor}`}>Everything. One place.</p>
           </div>
-          <button onClick={() => setDark(!dark)} className={`text-sm px-4 py-2 rounded-full border transition ${borderColor} ${descColor}`}>{dark ? '☀️ Light' : '🌙 Dark'}</button>
+          <button onClick={toggleDark} className={`text-sm px-4 py-2 rounded-full border transition ${borderColor} ${descColor}`}>{dark ? '☀️ Light' : '🌙 Dark'}</button>
         </div>
         <div className="flex flex-col gap-4">
           {pages.map((page) => (
