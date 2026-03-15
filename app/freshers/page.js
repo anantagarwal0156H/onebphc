@@ -1,16 +1,13 @@
 'use client';
 import { useState } from 'react';
 
-export default function Home() {
+export default function Freshers() {
   const [dark, setDark] = useState(false);
 
   const pages = [
-    { href: '/freshers', title: 'For Freshers', desc: 'Everything before you arrive', color: 'bg-rose-100 text-rose-900' },
-{ href: '/map', title: 'Campus Map', desc: 'Find any location on campus', color: 'bg-blue-100 text-blue-900' },
-    { href: '/acaddrive', title: 'AcadDrive', desc: 'Access your academic drive', color: 'bg-orange-100 text-orange-900' },
-    { href: '/contacts', title: 'Important Contacts', desc: 'Admin, departments, helplines', color: 'bg-amber-100 text-amber-900' },
-    { href: '/announcements', title: 'Announcements', desc: 'Campus updates in one place', color: 'bg-green-100 text-green-900' },
-    { href: '/outlets', title: 'Outlet Menus', desc: 'Food, timings and menus on campus', color: 'bg-orange-100 text-orange-900' },
+   { href: '/freshers/links', title: 'Must-Know Apps & Websites', desc: 'Everything you need installed and bookmarked', color: 'bg-amber-100 text-amber-900' },
+    
+    
   ];
 
   const bg = dark ? 'bg-gray-950 text-white' : 'bg-gray-50 text-gray-900';
@@ -22,8 +19,9 @@ export default function Home() {
       <div className="max-w-xl mx-auto px-5 py-10">
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h1 className="text-3xl font-bold tracking-tight">OneBPHC</h1>
-            <p className={`text-sm mt-1 ${descColor}`}>Everything. One place.</p>
+            <a href="/" className={`text-sm mb-2 block ${descColor}`}>← Back</a>
+            <h1 className="text-3xl font-bold tracking-tight">For Freshers</h1>
+            <p className={`text-sm mt-1 ${descColor}`}>Everything before you arrive.</p>
           </div>
           <button onClick={() => setDark(!dark)} className={`text-sm px-4 py-2 rounded-full border transition ${borderColor} ${descColor}`}>{dark ? '☀️ Light' : '🌙 Dark'}</button>
         </div>
