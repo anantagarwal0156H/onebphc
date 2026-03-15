@@ -37,7 +37,7 @@ const { dark, toggleDark } = useTheme();
         </div>
 <p className={`text-center text-xs mt-10 ${descColor}`}>OneBPHC — made with love for BPHC</p>
 <p className={`text-center text-xs mt-2 ${descColor}`}>Built by Anant Agarwal</p>
-<p className={`text-center text-xs mt-1 ${descColor}`}>Inspired by <a href="https://campus101-sable.vercel.app" target="_blank" rel="noopener noreferrer" className="underline">Campus101</a> and <a href="https://litelelo.com" target="_blank" rel="noopener noreferrer" className="underline">Litelelo</a></p>      </div>
+<p className={`text-center text-xs mt-1 ${descColor}`}>Inspired by <a href="https://campus101-sable.vercel.app" target="_blank" rel="noopener noreferrer" className="underline">Campus101</a> and <a href="https://litelelo.in" target="_blank" rel="noopener noreferrer" className="underline">Litelelo</a></p>      </div>
     </main>
   );
 }
