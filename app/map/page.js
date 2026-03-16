@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 export const dynamic = 'force-dynamic';
 
@@ -36,19 +36,35 @@ const locations = [
 ];
 
 export default function CampusMap() {
+
   const [selected, setSelected] = useState(null);
   const [search, setSearch] = useState('');
   const [MapComponents, setMapComponents] = useState(null);
+  const mapRef = useRef(null);
+
+  const handleLocationClick = (loc) => {
+    setSelected(loc);
+
+    setTimeout(() => {
+      mapRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }, 100);
+  };
 
   useEffect(() => {
+
     import('leaflet').then((L) => {
       delete L.Icon.Default.prototype._getIconUrl;
+
       L.Icon.Default.mergeOptions({
         iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
         iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
         shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
       });
     });
+
     import('react-leaflet').then((rl) => {
       setMapComponents({
         MapContainer: rl.MapContainer,
@@ -57,6 +73,7 @@ export default function CampusMap() {
         Popup: rl.Popup,
       });
     });
+
   }, []);
 
   const filtered = locations.filter((l) =>
@@ -65,118 +82,115 @@ export default function CampusMap() {
 
   return (
     <>
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap');
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background: #111; font-family: 'DM Sans', sans-serif; }
-        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
-        .fade { opacity: 0; transform: translateY(12px); animation: fadeUp 0.3s ease forwards; }
-        .pill {
-          padding: 7px 14px;
-          border-radius: 99px;
-          border: 1px solid #222;
-          background: #161616;
-          color: #888;
-          font-size: 13px;
-          cursor: pointer;
-          transition: all 0.15s ease;
-          font-family: 'DM Sans', sans-serif;
-        }
-        .pill:hover { border-color: #333; color: #ccc; background: #1c1c1c; }
-        .pill.active { background: #e8e8e8; color: #111; border-color: #e8e8e8; }
-        .search-input {
-          width: 100%;
-          padding: 12px 16px;
-          border-radius: 12px;
-          border: 1px solid #222;
-          background: #161616;
-          color: #e0e0e0;
-          font-size: 14px;
-          font-family: 'DM Sans', sans-serif;
-          outline: none;
-          transition: border-color 0.2s ease;
-        }
-        .search-input:focus { border-color: #333; }
-        .search-input::placeholder { color: #444; }
-        .info-card {
-          padding: 16px 20px;
-          border-radius: 14px;
-          border: 1px solid #222;
-          background: #161616;
-          margin-bottom: 16px;
-        }
-        .gmaps-btn {
-          display: inline-block;
-          margin-top: 10px;
-          padding: 8px 16px;
-          border-radius: 99px;
-          background: #e8e8e8;
-          color: #111;
-          font-size: 13px;
-          font-weight: 500;
-          text-decoration: none;
-          transition: background 0.15s ease;
-          font-family: 'DM Sans', sans-serif;
-        }
-        .gmaps-btn:hover { background: #d0d0d0; }
-      `}</style>
       <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
-      <main style={{ minHeight: '100vh', color: '#e8e8e8', maxWidth: '520px', margin: '0 auto', padding: '48px 20px' }}>
+      <main style={{
+        minHeight: '100vh',
+        color: '#e8e8e8',
+        maxWidth: '520px',
+        margin: '0 auto',
+        padding: '48px 20px'
+      }}>
 
-        <div className="fade" style={{ marginBottom: '40px' }}>
-          <a href="/" style={{ fontSize: '13px', color: '#444', textDecoration: 'none', display: 'block', marginBottom: '16px' }}>← Back</a>
-          <h1 style={{ fontSize: '26px', fontWeight: '600', color: '#f0f0f0', letterSpacing: '-0.5px' }}>Campus Map</h1>
-          <p style={{ fontSize: '14px', color: '#555', marginTop: '4px' }}>BITS Pilani Hyderabad Campus</p>
-        </div>
+        <h1 style={{ marginBottom: 20 }}>Campus Map</h1>
 
-        <div className="fade" style={{ animationDelay: '0.05s', marginBottom: '16px' }}>
-          <input
-            type="text"
-            placeholder="Search a location..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="search-input"
-          />
-        </div>
+        <input
+          type="text"
+          placeholder="Search a location..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          style={{
+            width: "100%",
+            padding: "10px",
+            marginBottom: "20px",
+            borderRadius: "8px"
+          }}
+        />
 
-        <div className="fade" style={{ animationDelay: '0.1s', display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '20px' }}>
+        <div style={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: "8px",
+          marginBottom: "20px"
+        }}>
           {filtered.map((loc) => (
-            <button key={loc.name} onClick={() => setSelected(loc)} className={`pill ${selected?.name === loc.name ? 'active' : ''}`}>
+            <button
+              key={loc.name}
+              onClick={() => handleLocationClick(loc)}
+              style={{
+                padding: "6px 12px",
+                borderRadius: "20px",
+                border: "1px solid #333",
+                background: selected?.name === loc.name ? "#fff" : "#222",
+                color: selected?.name === loc.name ? "#000" : "#fff",
+                cursor: "pointer"
+              }}
+            >
               {loc.name}
             </button>
           ))}
         </div>
 
         {selected && (
-          <div className="info-card fade">
-            <div style={{ fontSize: '15px', fontWeight: '600', color: '#e0e0e0' }}>{selected.name}</div>
-            <div style={{ fontSize: '13px', color: '#555', marginTop: '3px' }}>{selected.desc}</div>
-            <a href={`https://www.google.com/maps?q=${selected.lat},${selected.lng}`} target="_blank" rel="noopener noreferrer" className="gmaps-btn">
-              Open in Google Maps ↗
+          <div style={{
+            padding: "15px",
+            border: "1px solid #333",
+            borderRadius: "12px",
+            marginBottom: "20px"
+          }}>
+            <strong>{selected.name}</strong>
+            <p>{selected.desc}</p>
+
+            <a
+              href={`https://www.google.com/maps?q=${selected.lat},${selected.lng}`}
+              target="_blank"
+              style={{
+                display: "inline-block",
+                marginTop: "8px",
+                padding: "6px 12px",
+                background: "#fff",
+                color: "#000",
+                borderRadius: "20px",
+                textDecoration: "none"
+              }}
+            >
+              Open in Google Maps
             </a>
           </div>
         )}
 
         {MapComponents ? (
-          <div className="fade" style={{ borderRadius: '16px', overflow: 'hidden', animationDelay: '0.15s' }}>
+          <div
+            ref={mapRef}
+            style={{
+              borderRadius: "16px",
+              overflow: "hidden"
+            }}
+          >
             <MapComponents.MapContainer
               center={selected ? [selected.lat, selected.lng] : [17.5435, 78.5735]}
               zoom={selected ? 18 : 16}
-              style={{ height: '400px', width: '100%' }}
-              key={selected?.name}>
-              <MapComponents.TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+              style={{ height: "400px", width: "100%" }}
+              key={selected?.name}
+            >
+
+              <MapComponents.TileLayer
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              />
+
               {selected && (
                 <MapComponents.Marker position={[selected.lat, selected.lng]}>
-                  <MapComponents.Popup>{selected.name}<br />{selected.desc}</MapComponents.Popup>
+                  <MapComponents.Popup>
+                    {selected.name}<br />
+                    {selected.desc}
+                  </MapComponents.Popup>
                 </MapComponents.Marker>
               )}
+
             </MapComponents.MapContainer>
           </div>
         ) : (
-          <div style={{ height: '400px', borderRadius: '16px', background: '#161616', border: '1px solid #222', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <p style={{ color: '#444', fontSize: '14px' }}>Loading map...</p>
-          </div>
+          <p>Loading map...</p>
         )}
 
       </main>
