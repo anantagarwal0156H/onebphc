@@ -1,7 +1,8 @@
 'use client';
-import { useState,useEffect } from 'react';
-import { useTheme } from '../context/Themecontext.js';
+import { useState, useEffect } from 'react';
+
 export const dynamic = 'force-dynamic';
+
 const locations = [
   { name: 'Medical Centre', lat: 17.5420, lng: 78.5764, desc: 'Campus medical centre' },
   { name: 'SAC', lat: 17.5409, lng: 78.5753, desc: 'Student Activity Centre' },
@@ -63,36 +64,107 @@ export default function CampusMap() {
   );
 
   return (
-    <main className="min-h-screen bg-gray-50 text-gray-900">
+    <>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap');
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background: #111; font-family: 'DM Sans', sans-serif; }
+        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+        .fade { opacity: 0; transform: translateY(12px); animation: fadeUp 0.3s ease forwards; }
+        .pill {
+          padding: 7px 14px;
+          border-radius: 99px;
+          border: 1px solid #222;
+          background: #161616;
+          color: #888;
+          font-size: 13px;
+          cursor: pointer;
+          transition: all 0.15s ease;
+          font-family: 'DM Sans', sans-serif;
+        }
+        .pill:hover { border-color: #333; color: #ccc; background: #1c1c1c; }
+        .pill.active { background: #e8e8e8; color: #111; border-color: #e8e8e8; }
+        .search-input {
+          width: 100%;
+          padding: 12px 16px;
+          border-radius: 12px;
+          border: 1px solid #222;
+          background: #161616;
+          color: #e0e0e0;
+          font-size: 14px;
+          font-family: 'DM Sans', sans-serif;
+          outline: none;
+          transition: border-color 0.2s ease;
+        }
+        .search-input:focus { border-color: #333; }
+        .search-input::placeholder { color: #444; }
+        .info-card {
+          padding: 16px 20px;
+          border-radius: 14px;
+          border: 1px solid #222;
+          background: #161616;
+          margin-bottom: 16px;
+        }
+        .gmaps-btn {
+          display: inline-block;
+          margin-top: 10px;
+          padding: 8px 16px;
+          border-radius: 99px;
+          background: #e8e8e8;
+          color: #111;
+          font-size: 13px;
+          font-weight: 500;
+          text-decoration: none;
+          transition: background 0.15s ease;
+          font-family: 'DM Sans', sans-serif;
+        }
+        .gmaps-btn:hover { background: #d0d0d0; }
+      `}</style>
       <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-      <div className="max-w-xl mx-auto px-5 py-10">
-        <a href="/" className="text-sm text-gray-400 mb-2 block">← Back</a>
-        <h1 className="text-3xl font-bold mb-1">Campus Map</h1>
-        <p className="text-sm text-gray-500 mb-6">BITS Pilani Hyderabad Campus</p>
 
-        <input type="text" placeholder="Search a location..." value={search} onChange={(e) => setSearch(e.target.value)} className="w-full rounded-2xl border border-gray-200 px-4 py-3 text-sm mb-4 outline-none focus:border-violet-300"/>
+      <main style={{ minHeight: '100vh', color: '#e8e8e8', maxWidth: '520px', margin: '0 auto', padding: '48px 20px' }}>
 
-        <div className="flex flex-wrap gap-2 mb-6">
+        <div className="fade" style={{ marginBottom: '40px' }}>
+          <a href="/" style={{ fontSize: '13px', color: '#444', textDecoration: 'none', display: 'block', marginBottom: '16px' }}>← Back</a>
+          <h1 style={{ fontSize: '26px', fontWeight: '600', color: '#f0f0f0', letterSpacing: '-0.5px' }}>Campus Map</h1>
+          <p style={{ fontSize: '14px', color: '#555', marginTop: '4px' }}>BITS Pilani Hyderabad Campus</p>
+        </div>
+
+        <div className="fade" style={{ animationDelay: '0.05s', marginBottom: '16px' }}>
+          <input
+            type="text"
+            placeholder="Search a location..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="search-input"
+          />
+        </div>
+
+        <div className="fade" style={{ animationDelay: '0.1s', display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '20px' }}>
           {filtered.map((loc) => (
-            <button key={loc.name} onClick={() => setSelected(loc)} className={`px-3 py-1.5 rounded-full text-sm transition ${selected?.name === loc.name ? 'bg-violet-500 text-white' : 'bg-violet-100 text-violet-900'}`}>
+            <button key={loc.name} onClick={() => setSelected(loc)} className={`pill ${selected?.name === loc.name ? 'active' : ''}`}>
               {loc.name}
             </button>
           ))}
         </div>
 
         {selected && (
-          <div className="bg-violet-50 border border-violet-200 rounded-2xl p-4 mb-6">
-            <div className="font-bold text-violet-900">{selected.name}</div>
-            <div className="text-sm text-violet-700 mt-0.5 mb-3">{selected.desc}</div>
-            <a href={`https://www.google.com/maps?q=${selected.lat},${selected.lng}`} target="_blank" rel="noopener noreferrer" className="inline-block bg-violet-500 text-white text-sm px-4 py-2 rounded-full transition hover:bg-violet-600 active:scale-95">
+          <div className="info-card fade">
+            <div style={{ fontSize: '15px', fontWeight: '600', color: '#e0e0e0' }}>{selected.name}</div>
+            <div style={{ fontSize: '13px', color: '#555', marginTop: '3px' }}>{selected.desc}</div>
+            <a href={`https://www.google.com/maps?q=${selected.lat},${selected.lng}`} target="_blank" rel="noopener noreferrer" className="gmaps-btn">
               Open in Google Maps ↗
             </a>
           </div>
         )}
 
         {MapComponents ? (
-          <div className="rounded-3xl overflow-hidden" style={{ height: '400px' }}>
-            <MapComponents.MapContainer center={selected ? [selected.lat, selected.lng] : [17.5435, 78.5735]} zoom={selected ? 18 : 16} style={{ height: '100%', width: '100%' }} key={selected?.name}>
+          <div className="fade" style={{ borderRadius: '16px', overflow: 'hidden', animationDelay: '0.15s' }}>
+            <MapComponents.MapContainer
+              center={selected ? [selected.lat, selected.lng] : [17.5435, 78.5735]}
+              zoom={selected ? 18 : 16}
+              style={{ height: '400px', width: '100%' }}
+              key={selected?.name}>
               <MapComponents.TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
               {selected && (
                 <MapComponents.Marker position={[selected.lat, selected.lng]}>
@@ -102,11 +174,12 @@ export default function CampusMap() {
             </MapComponents.MapContainer>
           </div>
         ) : (
-          <div className="rounded-3xl bg-gray-100 flex items-center justify-center" style={{ height: '400px' }}>
-            <p className="text-gray-400 text-sm">Loading map...</p>
+          <div style={{ height: '400px', borderRadius: '16px', background: '#161616', border: '1px solid #222', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <p style={{ color: '#444', fontSize: '14px' }}>Loading map...</p>
           </div>
         )}
-      </div>
-    </main>
+
+      </main>
+    </>
   );
 }
