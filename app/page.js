@@ -3,12 +3,12 @@
 export default function Home() {
   const pages = [
     { href: '/freshers', title: 'For Freshers', desc: 'Everything before you arrive' },
-    { href: '/links', title: 'Website & App Links', desc: 'Acad, portals, important apps' },
     { href: '/acaddrive', title: 'AcadDrive', desc: 'Academic resources by year' },
     { href: '/contacts', title: 'Important Contacts', desc: 'Admin, departments, helplines' },
+    { href: '/map', title: 'Campus Map', desc: 'Find any location on campus' },
     { href: '/announcements', title: 'Announcements', desc: 'Campus updates in one place' },
     { href: '/outlets', title: 'Outlet Menus', desc: 'Food, timings and menus on campus' },
-    { href: '/map', title: 'Campus Map', desc: 'Find any location on campus' },
+    
   ];
 
   return (
