@@ -4,11 +4,10 @@ export default function Home() {
   const pages = [
     { href: '/freshers', title: 'For Freshers', desc: 'Everything before you arrive' },
     { href: '/acaddrive', title: 'AcadDrive', desc: 'Academic resources by year' },
-    { href: '/contacts', title: 'Important Contacts', desc: 'Admin, departments, helplines' },
+
     { href: '/map', title: 'Campus Map', desc: 'Find any location on campus' },
-    { href: '/announcements', title: 'Announcements', desc: 'Campus updates in one place' },
     { href: '/outlets', title: 'Outlet Menus', desc: 'Food, timings and menus on campus' },
-    
+    { href: '/contacts', title: 'Important Contacts', desc: 'Admin, departments, helplines' },
   ];
 
   return (
@@ -53,11 +52,8 @@ export default function Home() {
 
         <div style={{ marginTop: '60px', textAlign: 'center' }}>
           <p style={{ fontSize: '12px', color: '#333' }}>OneBPHC — made with love for BPHC</p>
-          <p style={{ fontSize: '12px', color: '#333', marginTop: '4px' }}>Built by Anant Agarwal</p>
-          <p style={{ fontSize: '12px', color: '#333', marginTop: '4px' }}>
-  Inspired by{' '}
-  <a href="https://campus101-sable.vercel.app" target="_blank" rel="noopener noreferrer" style={{ color: '#444', textDecoration: 'underline' }}>Campus101</a>
-</p>
+          <p style={{ fontSize: '12px', color: '#333', marginTop: '4px' }}>Built by Anant Agarwal(2025A7PS0156H)</p>
+         
         </div>
 
       </main>
