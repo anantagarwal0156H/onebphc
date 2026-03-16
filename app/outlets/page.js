@@ -5,10 +5,115 @@ const outletGroups = [
   {
     category: 'Fast Food & Quick Bites',
     items: [
-      { name: 'Yumpys', time: '11:00 AM - 11:00 PM', desc: 'The legendary spot for fried Maggi and burgers.', menu: [] },
-      { name: 'Hotspot', time: '10:00 AM - 10:30 PM', desc: 'Maggi, quick snacks, and your daily caffeine fix.', menu: [] },
+{
+  name: 'Yumpys',
+  time: '11:00 AM - 11:30 PM',
+  desc: 'The legendary spot for fried Maggi, quick rolls, and the student-favorite Rice Bowls.',
+  menu: [
+    { item: "--- MAGGI (BOILED & FRIED) ---", price: "" },
+    { item: "Classic Boiled Maggi", price: "₹45" },
+    { item: "Butter Boiled / Cheese Boiled", price: "₹65" },
+    { item: "Double Egg Boiled / Egg Butter", price: "₹65/70" },
+    { item: "Egg Cheese Boiled", price: "₹70" },
+    { item: "Fried Chicken Maggi", price: "₹75" },
+    { item: "Fried Paneer / Egg Maggi", price: "₹70/60" },
+    { item: "Fried Veg / Butter Garlic Maggi", price: "₹55/70" },
+
+    { item: "--- RICE BOWLS & BIRYANI ---", price: "" },
+    { item: "Chicken Kadai / Makhani / Tikka Bowl", price: "₹130" },
+    { item: "Paneer Butter Masala / Tikka Bowl", price: "₹130/125" },
+    { item: "Chicken Biryani", price: "₹130" },
+    { item: "Dum Biryani (Regular/Boneless)", price: "₹139/149" },
+
+    { item: "--- COMBOS (BEST VALUE) ---", price: "" },
+    { item: "Chicken Noodles + Manchuria", price: "₹130" },
+    { item: "Chicken Rice + Manchuria", price: "₹130" },
+    { item: "Veg Noodles + Manchuria", price: "₹110" },
+    { item: "Veg Rice + Manchuria", price: "₹110" },
+
+    { item: "--- NOODLES & FRIED RICE ---", price: "" },
+    { item: "Chicken Noodles / Fried Rice", price: "₹90" },
+    { item: "Chicken Schezwan Rice/Noodles", price: "₹99" },
+    { item: "Double Egg Fried Rice", price: "₹90" },
+    { item: "Paneer / Veg Fried Rice", price: "₹90/70" },
+
+    { item: "--- SIDES & ROLLS ---", price: "" },
+    { item: "Chicken / Paneer Roll", price: "₹90" },
+    { item: "Chicken / Veg Momos (Fried)", price: "₹119/99" },
+    { item: "French Fries (Masala/Peri Peri)", price: "₹80/85" },
+    { item: "Butter Garlic Fries", price: "₹99" },
+    { item: "Aloo Paratha (1pc/2pc)", price: "₹45/85" },
+    { item: "Paneer Paratha (1pc/2pc)", price: "₹65/125" },
+    { item: "Chicken Sandwich / Paneer Sandwich", price: "₹80/70" }
+  ]
+},      { name: 'Hotspot', time: '10:00 AM - 10:30 PM', desc: 'Maggi, quick snacks, and your daily caffeine fix.', menu: [
+  { item: "--- THE MAGGI SPECIALS ---", price: "" },
+  { item: "Aapka Original Masala", price: "₹45" },
+  { item: "Double Masala Maggi (DMM)", price: "₹50" },
+  { item: "Fried Double Masala Maggi", price: "₹60" },
+  { item: "Cheese Oregano Maggi", price: "₹75" },
+  { item: "Fried Chicken Maggi", price: "₹85" },
+  { item: "Delhi Dhamaka (Egg & Chicken)", price: "₹90" },
+  { item: "Fried Kaju Chicken Maggi", price: "₹120" },
+
+  { item: "--- STARTERS & QUICK BITES ---", price: "" },
+  { item: "Chicken 65 / Manchuria", price: "₹135" },
+  { item: "Crispy Corn / French Fries", price: "₹90/65" },
+  { item: "Chicken Drumsticks / Wings", price: "₹185/205" },
+  { item: "Veg/Paneer Momos (Fried)", price: "₹90/99" },
+  { item: "Chicken Momos (Fried)", price: "₹109" },
+
+  { item: "--- RICE & BIRYANI ---", price: "" },
+  { item: "Veg Fried Rice", price: "₹90" },
+  { item: "Chicken Fried Rice", price: "₹125" },
+  { item: "Chicken Dum Biryani", price: "₹150" },
+  { item: "Boneless Chicken Biryani", price: "₹180" },
+
+  { item: "--- BEVERAGES (HOT & COLD) ---", price: "" },
+  { item: "Tea (Cardamom) / Coffee", price: "₹25/30" },
+  { item: "Hot Chocolate", price: "₹35" },
+  { item: "Frappe (Cold Coffee)", price: "₹55" },
+  { item: "Kit Kat / Oreo Shake", price: "₹90" },
+  { item: "Blueberry / Strawberry Shake", price: "₹100" },
+
+  { item: "--- ROLLS & CURRIES ---", price: "" },
+  { item: "Butter Chicken (B/BL)", price: "₹145/165" },
+  { item: "Paneer Butter Masala", price: "₹135" },
+  { item: "Butter Naan / Garlic Naan", price: "₹50" },
+  { item: "Laccha Paratha", price: "₹50" }
+] },
       { name: 'SFC', time: '12:00 PM - 10:30 PM', desc: 'Student Food Court. Burgers, pizzas, and fries.', menu: [] },
-      { name: 'Wich Please', time: '10:00 AM - 10:00 PM', desc: 'Toasted sandwiches and subs.', menu: [] },
+      { name: 'Wich Please', time: '10:00 AM - 10:00 PM', desc: 'Toasted sandwiches and subs.', menu: [
+  { item: "--- SANDWICHES ---", price: "" },
+  { item: "Makhani Paneer Wich", price: "₹95" },
+  { item: "Cheese Butter / Buttery Toast", price: "₹75/50" },
+  { item: "Italian Pasta Wich (2/3 Layer)", price: "₹60/70" },
+  { item: "Spinach Corn Cheese Wich (2/3 Layer)", price: "₹70/90" },
+  { item: "Special Mayo Wich (2/3 Layer)", price: "₹70/85" },
+  { item: "Tandoori Paneer Cheese Wich", price: "₹100" },
+  { item: "Bombay Masala Wich (Plain/Mayo/Cheese)", price: "₹55/60/70" },
+  { item: "Cheese Chilli Wich / Paneer Tikka Cheese", price: "₹80" },
+  
+  { item: "--- SWEET WICH ---", price: "" },
+  { item: "Creamy Toast", price: "₹45" },
+  { item: "Nutella Wich", price: "₹80" },
+  { item: "Chocolate Grilled Wich", price: "₹80" },
+  { item: "Peanut Butter Jam Wich", price: "₹80" },
+
+  { item: "--- MAGGI & PASTA ---", price: "" },
+  { item: "Classic Maggi (Plain/Double Masala)", price: "₹40/45" },
+  { item: "Vegetable Maggi (Plain/Cheese)", price: "₹50/65" },
+  { item: "Tandoori Cheese Maggi", price: "₹70" },
+  { item: "White Sauce Pasta", price: "₹70" },
+  { item: "Red Sauce Pasta", price: "₹60" },
+  { item: "Mix Sauce Pasta", price: "₹80" },
+
+  { item: "--- DRINKS & SHAKES ---", price: "" },
+  { item: "Classic Cold Coffee", price: "₹65" },
+  { item: "Oreo / KitKat / Chocolate Shake", price: "₹75" },
+  { item: "Strawberry / Banana Shake", price: "₹75/60" },
+  { item: "Masala Chai", price: "₹15" }
+] },
       { name: 'Waffle Trend', time: '4:00 PM - 11:00 PM', desc: 'Fresh waffles and desserts.', menu: [] },
       { name: 'C3', time: '9:00 AM - 11:00 PM', desc: 'Ice creams, milkshakes, and hot beverages.', menu: [] },
     ],
@@ -16,8 +121,56 @@ const outletGroups = [
   {
     category: 'Indian & Full Meals',
     items: [
-      { name: 'Vijay Vahini', time: '11:00 AM - 10:30 PM', desc: 'Solid North Indian curries and rice dishes.', menu: [] },
-      { name: 'Bitsian Pleasant', time: '12:00 PM - 10:30 PM', desc: 'The proper sit-down dining experience.', menu: [
+// Find Vijay Vahini in your outletGroups array and replace it with this:
+{ 
+  name: 'Vijay Vahini', 
+  time: '11:00 AM - 10:30 PM', 
+  desc: 'Solid North Indian curries and rice dishes. Perfectly oily, perfectly BITSian.',
+  menu: [
+    { item: "--- ROLLS & QUICK BITES ---", price: "" },
+    { item: "Paneer Chilli Roll", price: "₹100" },
+    { item: "Chicken Tikka Roll", price: "₹120" },
+    { item: "Double Egg Roll", price: "₹90" },
+    { item: "Mushroom Chilli Roll", price: "₹100" },
+    { item: "Chaco Lava (Special)", price: "₹65" },
+    { item: "French Fries (Salted/Peri Peri)", price: "₹70/75" },
+    { item: "Aloo/Paneer Paratha (2 nos)", price: "₹90/110" },
+
+    { item: "--- BIRYANIS ---", price: "" },
+    { item: "Chicken Dum Biryani", price: "₹150" },
+    { item: "Chicken 65 Biryani", price: "₹130" },
+    { item: "Mutton Biryani", price: "₹250" },
+    { item: "Veg / Egg Biryani", price: "₹90/120" },
+    { item: "Paneer Biryani", price: "₹120" },
+
+    { item: "--- VEG CURRIES ---", price: "" },
+    { item: "Paneer Butter Masala", price: "₹90" },
+    { item: "Kadai Paneer", price: "₹95" },
+    { item: "Dal Fry / Dal Tadka", price: "₹70/80" },
+    { item: "Mix Veg Curry", price: "₹80" },
+    { item: "Cashew Paneer", price: "₹140" },
+
+    { item: "--- NON-VEG CURRIES ---", price: "" },
+    { item: "Butter Chicken Masala", price: "₹160" },
+    { item: "Chicken Masala / Kolhapuri", price: "₹110" },
+    { item: "Chicken Moghalai (Bone)", price: "₹150" },
+    { item: "Egg Masala", price: "₹90" },
+
+    { item: "--- STARTERS (VEG/NON-VEG) ---", price: "" },
+    { item: "Paneer 65 / Manchurian", price: "₹95" },
+    { item: "Gobi Manchurian", price: "₹65" },
+    { item: "Chicken 65 / Manchurian", price: "₹110" },
+    { item: "Chicken Lollipop (4 pcs)", price: "₹140" },
+    { item: "Chilli Fish", price: "₹150" },
+
+    { item: "--- RICE & BREADS ---", price: "" },
+    { item: "Veg Fried Rice / Noodles", price: "₹70/80" },
+    { item: "Chicken Fried Rice / Noodles", price: "₹100/110" },
+    { item: "Plain Roti / Butter Roti", price: "₹12/22" },
+    { item: "Butter Naan / Lacha Paratha", price: "₹30/25" },
+    { item: "Jeera Rice / Masala Rice", price: "₹70" }
+  ] 
+},      { name: 'Bitsian Pleasant', time: '12:00 PM - 10:30 PM', desc: 'The proper sit-down dining experience.', menu: [
   { item: "--- BIRYANIS & RICE ---", price: "" },
   { item: "Veg Biryani (Mini/Full)", price: "₹100/150" },
   { item: "Paneer Biryani", price: "₹170" },
