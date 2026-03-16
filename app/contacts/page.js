@@ -1,14 +1,9 @@
 'use client';
 import { useState } from 'react';
-import { useTheme } from '../context/Themecontext.js';
+
 const contacts = [
   {
     category: 'Medical',
-    color: 'bg-rose-100',
-    titleColor: 'text-rose-900',
-    descColor: 'text-rose-700',
-    cardBg: 'bg-rose-50 border-rose-200',
-    numberColor: 'text-rose-900',
     items: [
       { name: 'Medical Centre', number: '9010202850' },
       { name: 'Ambulance', number: '9640921921' },
@@ -16,11 +11,6 @@ const contacts = [
   },
   {
     category: 'Security & Safety',
-    color: 'bg-amber-100',
-    titleColor: 'text-amber-900',
-    descColor: 'text-amber-700',
-    cardBg: 'bg-amber-50 border-amber-200',
-    numberColor: 'text-amber-900',
     items: [
       { name: 'Fire & Security', number: '9010202883' },
       { name: 'Fire & Security (Alt)', number: '04066303988' },
@@ -29,11 +19,6 @@ const contacts = [
   },
   {
     category: 'Pest Control',
-    color: 'bg-green-100',
-    titleColor: 'text-green-900',
-    descColor: 'text-green-700',
-    cardBg: 'bg-green-50 border-green-200',
-    numberColor: 'text-green-900',
     items: [
       { name: 'Snake & Pest Control', number: '8106866196' },
     ],
@@ -41,57 +26,101 @@ const contacts = [
 ];
 
 export default function Contacts() {
-const { dark, toggleDark } = useTheme();
   const [toast, setToast] = useState(null);
-
-  const bg = dark ? 'bg-gray-950 text-white' : 'bg-gray-50 text-gray-900';
-  const descColor = dark ? 'text-gray-400' : 'text-gray-500';
-  const borderColor = dark ? 'border-gray-700' : 'border-gray-200';
+  const [pressed, setPressed] = useState(null);
 
   const copyNumber = (name, number) => {
     navigator.clipboard.writeText(number);
-    setToast(`${name} — ${number} copied!`);
-    setTimeout(() => setToast(null), 2500);
+    setPressed(number);
+    setToast(`${name} copied!`);
+    setTimeout(() => {
+      setToast(null);
+      setPressed(null);
+    }, 2000);
   };
 
   return (
-    <main className={`min-h-screen transition-colors duration-300 ${bg}`}>
-      <div className="max-w-xl mx-auto px-5 py-10">
+    <>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap');
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background: #111; font-family: 'DM Sans', sans-serif; }
+        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+        @keyframes slideDown { from { opacity: 0; transform: translateX(-50%) translateY(-8px); } to { opacity: 1; transform: translateX(-50%) translateY(0); } }
+        .fade { opacity: 0; transform: translateY(12px); animation: fadeUp 0.3s ease forwards; }
+        .section {
+          border: 1px solid #222;
+          border-radius: 16px;
+          overflow: hidden;
+          margin-bottom: 12px;
+        }
+        .section-header {
+          padding: 16px 22px;
+          background: #161616;
+          border-bottom: 1px solid #1e1e1e;
+          font-size: 11px;
+          font-weight: 600;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          color: #444;
+        }
+        .contact-card {
+          width: 100%;
+          text-align: left;
+          padding: 16px 22px;
+          background: #131313;
+          border: none;
+          border-bottom: 1px solid #1a1a1a;
+          cursor: pointer;
+          transition: background 0.15s ease;
+          font-family: 'DM Sans', sans-serif;
+        }
+        .contact-card:last-child { border-bottom: none; }
+        .contact-card:hover { background: #181818; }
+        .contact-card.copied { background: #1a1f1a; }
+        .toast {
+          position: fixed;
+          top: 20px;
+          left: 50%;
+          transform: translateX(-50%);
+          background: #1e1e1e;
+          border: 1px solid #2a2a2a;
+          color: #c8c8c8;
+          font-size: 13px;
+          padding: 10px 20px;
+          border-radius: 99px;
+          animation: slideDown 0.2s ease forwards;
+          z-index: 50;
+          white-space: nowrap;
+          font-family: 'DM Sans', sans-serif;
+        }
+      `}</style>
 
-        {/* Toast */}
-        {toast && (
-          <div className="fixed top-5 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-sm px-5 py-3 rounded-full shadow-lg z-50 transition">
-            ✓ {toast}
-          </div>
-        )}
+      {toast && <div className="toast">✓ {toast}</div>}
 
-        <div className="flex items-center justify-between mb-8">
-          <div>
-            <a href="/" className={`text-sm mb-2 block ${descColor}`}>← Back</a>
-            <h1 className="text-3xl font-bold tracking-tight">Important Contacts</h1>
-            <p className={`text-sm mt-1 ${descColor}`}>Tap any contact to copy the number.</p>
-          </div>
-          <button onClick={toggleDark} className={`text-sm px-4 py-2 rounded-full border transition ${borderColor} ${descColor}`}>{dark ? '☀️ Light' : '🌙 Dark'}</button>
+      <main style={{ minHeight: '100vh', color: '#e8e8e8', maxWidth: '520px', margin: '0 auto', padding: '48px 20px' }}>
+
+        <div className="fade" style={{ marginBottom: '40px' }}>
+          <a href="/" style={{ fontSize: '13px', color: '#444', textDecoration: 'none', display: 'block', marginBottom: '16px' }}>← Back</a>
+          <h1 style={{ fontSize: '26px', fontWeight: '600', color: '#f0f0f0', letterSpacing: '-0.5px' }}>Important Contacts</h1>
+          <p style={{ fontSize: '14px', color: '#555', marginTop: '4px' }}>Tap any contact to copy the number.</p>
         </div>
 
-        <div className="flex flex-col gap-4">
-          {contacts.map((section) => (
-            <div key={section.category} className={`rounded-3xl p-5 ${section.color}`}>
-              <div className={`text-xl font-bold mb-3 ${section.titleColor}`}>{section.category}</div>
-              <div className="flex flex-col gap-2">
-                {section.items.map((item) => (
-                  <button key={item.number} onClick={() => copyNumber(item.name, item.number)} className={`w-full text-left rounded-2xl p-4 border transition active:scale-95 ${section.cardBg}`}>
-                    <div className={`font-semibold text-sm ${section.numberColor}`}>{item.name}</div>
-                    <div className={`text-lg font-bold mt-0.5 ${section.numberColor}`}>{item.number}</div>
-                  </button>
-                ))}
-              </div>
+        <div>
+          {contacts.map((section, i) => (
+            <div key={section.category} className="section fade" style={{ animationDelay: `${i * 0.07}s` }}>
+              <div className="section-header">{section.category}</div>
+              {section.items.map((item) => (
+                <button key={item.number} onClick={() => copyNumber(item.name, item.number)} className={`contact-card ${pressed === item.number ? 'copied' : ''}`}>
+                  <div style={{ fontSize: '14px', fontWeight: '500', color: '#c8c8c8' }}>{item.name}</div>
+                  <div style={{ fontSize: '18px', fontWeight: '600', color: pressed === item.number ? '#7a9e7a' : '#e8e8e8', marginTop: '2px', letterSpacing: '0.02em' }}>{item.number}</div>
+                </button>
+              ))}
             </div>
           ))}
         </div>
 
-        <p className={`text-center text-xs mt-10 ${descColor}`}>OneBPHC — made with love for BPHC</p>
-      </div>
-    </main>
+      </main>
+    </>
   );
 }
