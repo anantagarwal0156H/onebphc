@@ -82,7 +82,34 @@ const outletGroups = [
   { item: "Butter Naan / Garlic Naan", price: "₹50" },
   { item: "Laccha Paratha", price: "₹50" }
 ] },
-      { name: 'SFC', time: '12:00 PM - 10:30 PM', desc: 'Student Food Court. Burgers, pizzas, and fries.', menu: [] },
+      { name: 'SFC', time: '12:00 PM - 10:30 PM', desc: 'Student Food Court. Burgers, pizzas, and fries.', menu: [
+  { item: "--- BURGERS & SLIDERS ---", price: "" },
+  { item: "Veg Burger / Cheese Burger", price: "₹70/90" },
+  { item: "Chicken Burger / Zinger Burger", price: "₹100/120" },
+  { item: "Double Patty Burger (Veg/Non-Veg)", price: "₹130/160" },
+  { item: "SFC Special Jumbo Burger", price: "₹180" },
+
+  { item: "--- FRIED CHICKEN & WINGS ---", price: "" },
+  { item: "Hot & Crispy Wings (4 Pcs)", price: "₹140" },
+  { item: "Chicken Lollipop (5 Pcs)", price: "₹160" },
+  { item: "Fried Chicken Leg (1 Pc)", price: "₹80" },
+  { item: "Boneless Strips (3 Pcs)", price: "₹110" },
+  { item: "Popcorn Chicken (Medium/Large)", price: "₹100/180" },
+
+  { item: "--- PIZZA & PASTA ---", price: "" },
+  { item: "Margherita Pizza (7 inch)", price: "₹130" },
+  { item: "Veggie Delight Pizza", price: "₹160" },
+  { item: "Chicken Tikka Pizza", price: "₹190" },
+  { item: "White Sauce Pasta (Veg/Chicken)", price: "₹120/150" },
+  { item: "Red Sauce Pasta (Veg/Chicken)", price: "₹110/140" },
+
+  { item: "--- SIDES & BEVERAGES ---", price: "" },
+  { item: "French Fries (Salted/Peri Peri)", price: "₹70/80" },
+  { item: "Cheese Loaded Fries", price: "₹110" },
+  { item: "Chicken Nuggets (6 Pcs)", price: "₹90" },
+  { item: "Coke / Sprite / Thums Up (Can)", price: "₹40" },
+  { item: "Cold Coffee", price: "₹70" }
+] },
       { name: 'Wich Please', time: '10:00 AM - 10:00 PM', desc: 'Toasted sandwiches and subs.', menu: [
   { item: "--- SANDWICHES ---", price: "" },
   { item: "Makhani Paneer Wich", price: "₹95" },
@@ -114,8 +141,61 @@ const outletGroups = [
   { item: "Strawberry / Banana Shake", price: "₹75/60" },
   { item: "Masala Chai", price: "₹15" }
 ] },
-      { name: 'Waffle Trend', time: '4:00 PM - 11:00 PM', desc: 'Fresh waffles and desserts.', menu: [] },
-      { name: 'C3', time: '9:00 AM - 11:00 PM', desc: 'Ice creams, milkshakes, and hot beverages.', menu: [] },
+      { name: 'Waffle Trend', time: '4:00 PM - 11:00 PM', desc: 'Fresh waffles and desserts.', menu: [
+  { item: "--- BURGERS & SLIDERS ---", price: "" },
+  { item: "Veg Burger / Cheese Burger", price: "₹70/90" },
+  { item: "Chicken Burger / Zinger Burger", price: "₹100/120" },
+  { item: "Double Patty Burger (Veg/Non-Veg)", price: "₹130/160" },
+  { item: "SFC Special Jumbo Burger", price: "₹180" },
+
+  { item: "--- FRIED CHICKEN & WINGS ---", price: "" },
+  { item: "Hot & Crispy Wings (4 Pcs)", price: "₹140" },
+  { item: "Chicken Lollipop (5 Pcs)", price: "₹160" },
+  { item: "Fried Chicken Leg (1 Pc)", price: "₹80" },
+  { item: "Boneless Strips (3 Pcs)", price: "₹110" },
+  { item: "Popcorn Chicken (Medium/Large)", price: "₹100/180" },
+
+  { item: "--- PIZZA & PASTA ---", price: "" },
+  { item: "Margherita Pizza (7 inch)", price: "₹130" },
+  { item: "Veggie Delight Pizza", price: "₹160" },
+  { item: "Chicken Tikka Pizza", price: "₹190" },
+  { item: "White Sauce Pasta (Veg/Chicken)", price: "₹120/150" },
+  { item: "Red Sauce Pasta (Veg/Chicken)", price: "₹110/140" },
+
+  { item: "--- SIDES & BEVERAGES ---", price: "" },
+  { item: "French Fries (Salted/Peri Peri)", price: "₹70/80" },
+  { item: "Cheese Loaded Fries", price: "₹110" },
+  { item: "Chicken Nuggets (6 Pcs)", price: "₹90" },
+  { item: "Coke / Sprite / Thums Up (Can)", price: "₹40" },
+  { item: "Cold Coffee", price: "₹70" }
+] },
+      { name: 'C3', time: '9:00 AM - 11:00 PM', desc: 'Ice creams, milkshakes, and hot beverages.', menu: [
+  { item: "--- AMUL ICE CREAM SCOOPS ---", price: "" },
+  { item: "Vanilla / Strawberry", price: "₹40" },
+  { item: "Chocolate / Butterscotch", price: "₹50" },
+  { item: "Alfonso Mango / Rajbhog", price: "₹60" },
+  { item: "Chocolate Brownie Scoop", price: "₹70" },
+  { item: "Add: Choco Dip / Sprinkles", price: "₹10" },
+
+  { item: "--- MILKSHAKES & THICK SHAKES ---", price: "" },
+  { item: "Classic Chocolate Shake", price: "₹80" },
+  { item: "Oreo / KitKat Thickshake", price: "₹100" },
+  { item: "Cold Coffee (Plain)", price: "₹60" },
+  { item: "Cold Coffee with Ice Cream", price: "₹80" },
+  { item: "Mango / Strawberry Shake", price: "₹90" },
+
+  { item: "--- HOT SNACKS ---", price: "" },
+  { item: "Samosa (1 Pc) / Veg Puff", price: "₹15/25" },
+  { item: "Egg Puff / Paneer Puff", price: "₹35/40" },
+  { item: "Veg Cutlet / Corn Nuggets", price: "₹40/60" },
+  { item: "French Fries", price: "₹70" },
+
+  { item: "--- HOT BEVERAGES ---", price: "" },
+  { item: "Amul Cool (Bottle)", price: "₹30" },
+  { item: "Hot Tea / Ginger Tea", price: "₹20" },
+  { item: "Coffee / Hot Chocolate", price: "₹30/45" },
+  { item: "Bournvita / Horlicks Milk", price: "₹40" }
+] },
     ],
   },
   {
