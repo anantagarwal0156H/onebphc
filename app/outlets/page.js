@@ -141,34 +141,34 @@ const outletGroups = [
   { item: "Strawberry / Banana Shake", price: "₹75/60" },
   { item: "Masala Chai", price: "₹15" }
 ] },
-      { name: 'Waffle Trend', time: '4:00 PM - 11:00 PM', desc: 'Fresh waffles and desserts.', menu: [
-  { item: "--- BURGERS & SLIDERS ---", price: "" },
-  { item: "Veg Burger / Cheese Burger", price: "₹70/90" },
-  { item: "Chicken Burger / Zinger Burger", price: "₹100/120" },
-  { item: "Double Patty Burger (Veg/Non-Veg)", price: "₹130/160" },
-  { item: "SFC Special Jumbo Burger", price: "₹180" },
+      { name: 'Waffle Trend', time: '4:00 PM - 11:00 PM', desc: 'Fresh waffles and desserts.',menu: [
+  { item: "--- BELGIAN WAFFLES (S/D) ---", price: "" },
+  { item: "Dark/Milk Chocolate", price: "₹90/160" },
+  { item: "Triple Chocolate", price: "₹110/200" },
+  { item: "White Chocolate", price: "₹90/160" },
+  { item: "Nutella / KitKat Waffle", price: "₹120/210" },
+  { item: "Oreo / Blueberry", price: "₹100/180" },
+  { item: "Honey Butter / Maple Butter", price: "₹80/140" },
 
-  { item: "--- FRIED CHICKEN & WINGS ---", price: "" },
-  { item: "Hot & Crispy Wings (4 Pcs)", price: "₹140" },
-  { item: "Chicken Lollipop (5 Pcs)", price: "₹160" },
-  { item: "Fried Chicken Leg (1 Pc)", price: "₹80" },
-  { item: "Boneless Strips (3 Pcs)", price: "₹110" },
-  { item: "Popcorn Chicken (Medium/Large)", price: "₹100/180" },
+  { item: "--- WAFFLE SANDWICHES ---", price: "" },
+  { item: "Death by Chocolate", price: "₹110" },
+  { item: "Red Velvet Waffle", price: "₹120" },
+  { item: "Ice Cream Waffle Sandwich", price: "₹130" },
+  { item: "Fruit & Cream Waffle", price: "₹140" },
 
-  { item: "--- PIZZA & PASTA ---", price: "" },
-  { item: "Margherita Pizza (7 inch)", price: "₹130" },
-  { item: "Veggie Delight Pizza", price: "₹160" },
-  { item: "Chicken Tikka Pizza", price: "₹190" },
-  { item: "White Sauce Pasta (Veg/Chicken)", price: "₹120/150" },
-  { item: "Red Sauce Pasta (Veg/Chicken)", price: "₹110/140" },
+  { item: "--- MINI PANCAKES (8 PCS) ---", price: "" },
+  { item: "Classic Maple / Honey", price: "₹90" },
+  { item: "Nutella Pancakes", price: "₹130" },
+  { item: "Dark & White Mix", price: "₹120" },
+  { item: "Chocolate Overload", price: "₹140" },
 
-  { item: "--- SIDES & BEVERAGES ---", price: "" },
-  { item: "French Fries (Salted/Peri Peri)", price: "₹70/80" },
-  { item: "Cheese Loaded Fries", price: "₹110" },
-  { item: "Chicken Nuggets (6 Pcs)", price: "₹90" },
-  { item: "Coke / Sprite / Thums Up (Can)", price: "₹40" },
-  { item: "Cold Coffee", price: "₹70" }
-] },
+  { item: "--- BEVERAGES & ADDS ---", price: "" },
+  { item: "Add Ice Cream Scoop", price: "₹30" },
+  { item: "Extra Nutella / Toppings", price: "₹40/20" },
+  { item: "Cold Coffee", price: "₹70" },
+  { item: "Thick Chocolate Shake", price: "₹100" }
+]
+ },
       { name: 'C3', time: '9:00 AM - 11:00 PM', desc: 'Ice creams, milkshakes, and hot beverages.', menu: [
   { item: "--- AMUL ICE CREAM SCOOPS ---", price: "" },
   { item: "Vanilla / Strawberry", price: "₹40" },
@@ -413,7 +413,7 @@ const outletGroups = [
   { item: "--- SOUTH INDIAN SPECIALS ---", price: "" },
   { item: "Idly (2 Pcs) / Sambar Vada", price: "₹40/50" },
   { item: "Plain Dosa / Onion Dosa", price: "₹60/70" },
-  { item: "Masala Dosa / Paneer Dosa", price: "₹75/90" },
+  { item: "Masala Dosa / Paneer Dosa", price: "₹50/90" },
   { item: "Cheese Dosa / Mysore Masala", price: "₹90/85" },
   { item: "Uttapam (Onion/Tomato)", price: "₹75" },
   { item: "Poori Sabji / Upma", price: "₹60/45" },
@@ -481,7 +481,7 @@ export default function Outlets() {
         <div className="fade" style={{ marginBottom: '40px' }}>
           <a href="/" style={{ fontSize: '14px', color: '#555', textDecoration: 'none', display: 'block', marginBottom: '16px' }}>← Back</a>
           <h1 style={{ fontSize: '32px', fontWeight: '600', letterSpacing: '-0.8px' }}>Campus Outlets</h1>
-          <p style={{ fontSize: '15px', color: '#555', marginTop: '6px' }}>Tap an outlet to see the menu.Credits and Thanks to JD and Gunjan Chandak</p>
+          <p style={{ fontSize: '15px', color: '#555', marginTop: '6px' }}>Tap an outlet to see the menu.</p>
         </div>
 
         {outletGroups.map((group, gIdx) => (
