@@ -481,7 +481,7 @@ export default function Outlets() {
         <div className="fade" style={{ marginBottom: '40px' }}>
           <a href="/" style={{ fontSize: '14px', color: '#555', textDecoration: 'none', display: 'block', marginBottom: '16px' }}>← Back</a>
           <h1 style={{ fontSize: '32px', fontWeight: '600', letterSpacing: '-0.8px' }}>Campus Outlets</h1>
-          <p style={{ fontSize: '15px', color: '#555', marginTop: '6px' }}>Tap an outlet to see the menu.</p>
+          <p style={{ fontSize: '15px', color: '#555', marginTop: '6px' }}>Tap an outlet to see the menu.Credits and Thanks to JD and Gunjan Chandak</p>
         </div>
 
         {outletGroups.map((group, gIdx) => (
